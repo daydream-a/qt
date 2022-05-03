@@ -1,4 +1,6 @@
 #include "qt.h"
+#include "test.h"
+using namespace std;
 
 qt::qt(QWidget* parent)
 	: QMainWindow(parent)
@@ -10,6 +12,11 @@ qt::qt(QWidget* parent)
 
 	auto change_btn_all = { ui.changebtn_1,ui.changebtn_2,ui.changebtn_3,ui.changebtn_4,ui.changebtn_5,ui.changebtn_6 };
 	auto return_btn_all = { ui.returnbtn_1,ui.returnbtn_2,ui.returnbtn_3,ui.returnbtn_4,ui.returnbtn_5,ui.returnbtn_6 };
+	vector<QLineEdit*> line1 ={ ui.func1_line1,ui.func1_line2,ui.func3_line1,ui.func4_line1,ui.func5_line1,ui.func6_line1 };
+	vector<QLineEdit*> line2 = { ui.func1_line2,ui.func2_line2,ui.func3_line2,ui.func4_line4,ui.func5_line2,ui.func6_line2 };
+	auto sendBtn = { ui.func1_send,ui.func2_send,ui.func3_send,ui.func4_send,ui.func5_send,ui.func6_send };
+	vector<QTextEdit*> showline_all = { ui.func1_re,ui.func2_re,ui.func3_re,ui.func4_re,ui.func5_re,ui.func6_re };
+
 
 	connect(ui.pushButton, &QPushButton::clicked, this, &qt::onFunc);
 	int j = 0;
@@ -28,6 +35,15 @@ qt::qt(QWidget* parent)
 			{
 				qt::changeIndex(0);
 			});
+	}
+	j = 0;
+	for(auto i:sendBtn)
+	{
+		connect(i, &QPushButton::clicked, this, [=]()
+			{
+				qt::sendMessage(line1[j],line2[j],showline_all[j],j+1);
+			});
+		j++;
 	}
 	//connect(ui.returnbtn_1,&QPushButton::clicked,this, [=]()
 	//{
@@ -48,4 +64,21 @@ void qt::onFunc()
 void qt::changeIndex(int index)
 {
 	ui.tabWidget->setCurrentIndex(index);
+}
+
+void qt::sendMessage(QLineEdit *line1,QLineEdit *line2,QTextEdit *edit,int i)
+{
+	int adress = line1->text().toInt();
+	int num = line2->text().toInt();
+	int flag = check(i, adress, num);
+	QString show;
+	if(flag == 1)
+	{
+		show = send(adress, i, num);
+	}
+	else
+	{
+		show = "format error\n";
+	}
+	edit->setText(show);
 }

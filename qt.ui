@@ -17,10 +17,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>-20</x>
-      <y>-10</y>
+      <x>-10</x>
+      <y>0</y>
       <width>791</width>
-      <height>521</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="tabPosition">
@@ -30,7 +30,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>5</number>
     </property>
     <property name="iconSize">
      <size>
@@ -131,8 +131,8 @@
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>230</y>
+        <x>290</x>
+        <y>360</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -144,14 +144,83 @@
      <widget class="QPushButton" name="returnbtn_1">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>230</y>
+        <x>570</x>
+        <y>350</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
        <string>返回</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func1_line1">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>160</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="func1_re">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>220</y>
+        <width>491</width>
+        <height>87</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func1_line2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>160</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>130</y>
+        <width>72</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>起始地址：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>130</y>
+        <width>72</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>线圈个数</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="func1_send">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>160</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>发送</string>
       </property>
      </widget>
     </widget>
@@ -162,14 +231,83 @@
      <widget class="QPushButton" name="returnbtn_2">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>230</y>
+        <x>570</x>
+        <y>330</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
        <string>返回</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="func2_send">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>200</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>发送</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func2_line1">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>200</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func2_line2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>200</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>170</y>
+        <width>72</width>
+        <height>15</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>起始地址</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>170</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>离散值个数</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="func2_re">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>280</y>
+        <width>321</width>
+        <height>87</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -180,14 +318,57 @@
      <widget class="QPushButton" name="returnbtn_3">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>230</y>
+        <x>620</x>
+        <y>260</y>
         <width>93</width>
         <height>28</height>
        </rect>
       </property>
       <property name="text">
        <string>返回</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="func3_send">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>150</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>发送</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func3_line1">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>160</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func3_line2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>160</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="func3_re">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>220</y>
+        <width>104</width>
+        <height>87</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -208,6 +389,49 @@
        <string>返回</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="func4_line1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>160</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func4_line4">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>150</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="func4_send">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>170</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>发送</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="func4_re">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>240</y>
+        <width>104</width>
+        <height>87</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
@@ -226,6 +450,49 @@
        <string>返回</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="func5_line1">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>140</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func5_line2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>140</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="func5_send">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>140</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>发送</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="func5_re">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>230</y>
+        <width>104</width>
+        <height>87</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_6">
      <attribute name="title">
@@ -242,6 +509,49 @@
       </property>
       <property name="text">
        <string>返回</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func6_line1">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>130</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="func6_line2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>130</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="func6_send">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>130</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>发送</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="func6_re">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>210</y>
+        <width>104</width>
+        <height>87</height>
+       </rect>
       </property>
      </widget>
     </widget>

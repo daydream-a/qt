@@ -6,6 +6,9 @@
 #include <qmessagebox.h>
 #include <QTabWidget>
 #include <QTabBar>
+#include <QString>
+#include <QLineEdit>
+
 
 class qt : public QMainWindow
 {
@@ -17,6 +20,7 @@ public:
 public slots:
 	void onFunc();
 	void changeIndex(int index);
+	void qt::sendMessage(QLineEdit* line1, QLineEdit* line2, QTextEdit* edit, int i);
 
 private:
 	Ui::qtClass ui;
