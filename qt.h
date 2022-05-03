@@ -7,20 +7,17 @@
 #include <QTabWidget>
 #include <QTabBar>
 
-
 class qt : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    qt(QWidget *parent = Q_NULLPTR);
+	qt(QWidget* parent = Q_NULLPTR);
 
 public slots:
-    void onFunc();
-    void changeIndex(int index);
+	void onFunc();
+	void changeIndex(int index);
 
 private:
-    Ui::qtClass ui;
+	Ui::qtClass ui;
 };
-
-
