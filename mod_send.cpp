@@ -44,7 +44,6 @@ char* mod_send(char* frame, int len, int r_w)
 
 	//发送数据
 
-
 	//关闭套接字
 	closesocket(sockClient);
 	WSACleanup();

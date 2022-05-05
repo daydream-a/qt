@@ -16,59 +16,57 @@ int receve[32];
 //							{"30812", "30813", "", "", "", ""},
 //							{"40787", "", "", "", "", ""}};
 
-QString send(int add,int choose,int num_or_reg) {
+QString send(int add, int choose, int num_or_reg) {
+	QString str1;
 	initMODBUS();
 	unsigned short* t;
 	int flag = 0;
-	switch(choose)
+	switch (choose)
 	{
 	case 1:
 		t = read0xxxx_01(1, add, num_or_reg);
 		if (t == 0) {
-			return "no";
+			return "Connect failed\n";
 		}
 		else {
 			for (int i = 0; i < num_or_reg; i++) {
 				receve[i] = t[i];
 			}
-			//dump_name(0, add, num_or_reg);
-			
-			return dump(num_or_reg);
+			return dump_name(0, add, num_or_reg) + dump(num_or_reg);
 		}
 		break;
 	case 2:
 		t = read1xxxx_02(1, add, num_or_reg);
 		if (t == 0) {
-			printf("Connect failed\n");
+			return "Connect failed\n";
 		}
 		else {
 			for (int i = 0; i < num_or_reg; i++) {
 				receve[i] = t[i];
 			}
-			return dump(num_or_reg);
-			
+			return dump_name(0, add, num_or_reg) + dump(num_or_reg);
 		}
 		break;
 	case 3:
-		t = read4xxxx_03(1, 787, 1);
+		t = read4xxxx_03(1, add, num_or_reg);
 		if (t == 0) {
-			printf("Connect failed\n");
+			return "Connect failed\n";
 		}
 		else {
 			receve[0] = t[0];
-			return dump(1);
+			return dump_name(0, add, num_or_reg) + dump(num_or_reg);
 		}
 		break;
 	case 4:
 		t = read3xxxx_04(1, add, num_or_reg);
 		if (t == 0) {
-			printf("Connect failed\n");
+			return "Connect failed\n";
 		}
 		else {
 			for (int i = 0; i < num_or_reg; i++) {
 				receve[i] = t[i];
 			}
-			return dump(num_or_reg);
+			return dump_name(0, add, num_or_reg) + dump(num_or_reg);
 		}
 		break;
 	case 5:
@@ -88,7 +86,7 @@ QString send(int add,int choose,int num_or_reg) {
 		}
 		break;
 	case 6:
-		if (writeSingle4xxxx_06(1, 787, num_or_reg) == 0) {
+		if (writeSingle4xxxx_06(1, add, num_or_reg) == 0) {
 			return "Connect failed";
 		}
 		else {
@@ -102,10 +100,10 @@ QString send(int add,int choose,int num_or_reg) {
 }
 
 QString dump(int n) {
-	char str1[] = "";
-	char str2[] = "";
+	char str1[1024] = "";
+	char str2[1024] = "";
 	char a[] = "	";
-	const char b[] = {0x0A, 0x00};
+	const char b[] = { 0x0A, 0x00 };
 	if (receve == 0) {
 		return "error";
 	}
@@ -121,16 +119,26 @@ QString dump(int n) {
 }
 
 QString dump_name(int function, int add, int num) {
+	char str1[1024] = "";
+	char str2[1024] = "";
+	char a[] = "	";
+	char c[] = "x";
+	const char b[] = { 0x0A, 0x00 };
 	if (receve == 0) {
-		printf("error\n");
+		return "error";
 	}
 	else {
 		for (int i = 0; i < num; i++) {
-			printf("%dx%d\t", function, add + i);
+			itoa(function, str1, 10);
+			strcat(str2, str1);
+			strcat(str2, c);
+			itoa(add + i, str1, 10);
+			strcat(str2, str1);
+			strcat(str2, a);
 		}
-		printf("\n");
+		strcat(str2, b);
+		return str2;
 	}
-	return 0;
 }
 
 int check(int function, int add, int num) {
@@ -148,6 +156,12 @@ int check(int function, int add, int num) {
 		else
 			flag = 1;
 		break;
+	case 3:
+		if (add != 787 || num != 1)
+			flag = 0;
+		else
+			flag = 1;
+		break;
 	case 4:
 		if ((add < 812) || (add > 813) || (add + num - 1 > 813))
 			flag = 0;
@@ -161,7 +175,7 @@ int check(int function, int add, int num) {
 			flag = 1;
 		break;
 	case 6:
-		if (num > 10000)
+		if (add != 787 || num > 10000)
 			flag = 0;
 		else
 			flag = 1;

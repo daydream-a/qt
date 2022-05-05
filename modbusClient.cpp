@@ -1,6 +1,5 @@
 #include "modbusClient.h"
 
-
 unsigned char modbusBeginTimeout = 10;
 unsigned char modbusEndTimeout = 5;
 
@@ -29,7 +28,6 @@ const unsigned char auchCRCHi[256] = {
 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0, 0x80, 0x41, 0x00, 0xC1, 0x81,
 0x40
 };
-
 
 /* Table of CRC values for low order byte */
 const unsigned char auchCRCLo[256] = {
