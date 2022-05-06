@@ -6,8 +6,8 @@ qt::qt(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-	//ui.menuBar->hide();
-	//ui.mainToolBar->hide();
+	ui.menuBar->hide();
+	ui.mainToolBar->hide();
 	ui.tabWidget->tabBar()->hide();
 	this->setFixedSize(this->width(), this->height());
 	vector<QPushButton*> change_btn_all = { ui.changebtn_1,ui.changebtn_2,ui.changebtn_3,ui.changebtn_4,ui.changebtn_5,ui.changebtn_6 };
@@ -17,7 +17,7 @@ qt::qt(QWidget* parent)
 	vector<QPushButton*> sendBtn = { ui.func1_send,ui.func2_send,ui.func3_send,ui.func4_send,ui.func5_send,ui.func6_send };
 	vector<QTextEdit*> showline_all = { ui.func1_re,ui.func2_re,ui.func3_re,ui.func4_re,ui.func5_re,ui.func6_re };
 
-	for (auto i:showline_all)
+	for (auto i : showline_all)
 	{
 		i->setReadOnly(true);
 	}
@@ -89,12 +89,12 @@ void qt::sendMessage(QLineEdit* line1, QLineEdit* line2, QTextEdit* edit, int i)
 	}
 	else
 	{
-		show = "format error\n";
+		show = "Register out of range!!!\n";
 	}
 	edit->setText(show);
 }
 
-void qt::clearall(vector<QLineEdit*> line1,vector<QLineEdit*> line2,vector<QTextEdit*> showline_all)
+void qt::clearall(vector<QLineEdit*> line1, vector<QLineEdit*> line2, vector<QTextEdit*> showline_all)
 {
 	for (auto i : line1)
 		i->setText("");
@@ -106,7 +106,3 @@ void qt::clearall(vector<QLineEdit*> line1,vector<QLineEdit*> line2,vector<QText
 	ui.func3_line2->setText("1");
 	ui.func6_line1->setText("787");
 }
-
-
-
-

@@ -10,8 +10,6 @@
 #include <QLineEdit>
 using namespace std;
 
-
-
 class qt : public QMainWindow
 {
 	Q_OBJECT
